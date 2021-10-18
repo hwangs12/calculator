@@ -1,0 +1,51 @@
+#root {
+  position: absolute;
+  width: 100%;
+}
+
+.calculator {
+  position: relative;
+  margin: 0;
+  width: 300px;
+  background-color: beige;
+  transform: translate(50%, 0%);
+  display: flex;
+  flex-direction: column;
+}
+
+.screen {
+  min-height: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: black;
+  margin: 1rem;
+  overflow-wrap: break-word;
+}
+
+.buttons-container {
+  margin: 1rem;
+  background-color: grey;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.calc-btn {
+  padding: 0.5rem 1rem;
+  margin: 0.1rem;
+  width: 10%;
+  background-color: yellow;
+  font-size: 2.5rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+#display {
+  color: white;
+  width: 90%;
+  margin: 1rem 1rem 0rem 1rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  text-align: center;
+}
