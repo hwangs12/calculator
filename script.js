@@ -136,17 +136,37 @@ const App = () => {
   const addOperation = (e) => {
     let dataText = e.target.textContent
     setText(oldState => {
-      if (oldState.operation !== '' && oldState.value2 !== '' && oldState.value1 !== '') {
+      if (oldState.operation !== '' && oldState.value1 !== '') {
         if (oldState.operation === '+') {
+          if (oldState.value2 === '' && dataText === '−' && oldState.value2[0] !== '-') {
+            return {...oldState, value2: '-' + oldState.value2}
+          } else if (oldState.value2 === '-') {
+            return {...oldState, operation: dataText, value2: ''}
+          }
           return {...oldState, value1: Number(oldState.value1) + Number(oldState.value2), operation: dataText, value2: ''}
         } else if (oldState.operation === '−') {
+          if (oldState.value2 === '' && dataText === '−' && oldState.value2[0] !== '-') {
+            return {...oldState, value2: '-' + oldState.value2}
+          } else if (oldState.value2 === '-') {
+            return {...oldState, operation: dataText, value2: ''}
+          }
           return {...oldState, value1: Number(oldState.value1) - Number(oldState.value2), operation: dataText, value2: ''}
         } else if (oldState.operation === '×') {
+          if (oldState.value2 === '' && dataText === '−' && oldState.value2[0] !== '-') {
+            return {...oldState, value2: '-' + oldState.value2}
+          } else if (oldState.value2 === '-') {
+            return {...oldState, operation: dataText, value2: ''}
+          }
           return {...oldState, value1: Number(oldState.value1) * Number(oldState.value2), operation: dataText, value2: ''}
         } else if (oldState.operation === '÷') {
+          if (oldState.value2 === '' && dataText === '−' && oldState.value2[0] !== '-') {
+            return {...oldState, value2: '-' + oldState.value2}
+          } else if (oldState.value2 === '-') {
+            return {...oldState, operation: dataText, value2: ''}
+          }
           return {...oldState, value1: Number(oldState.value1) / Number(oldState.value2), operation: dataText, value2: ''}
         }
-      }
+      } 
       
       return {...oldState, operation: dataText}
     })
@@ -177,6 +197,7 @@ const App = () => {
       console.log(oldState)
       if (oldState.operation !== '' && oldState.value2 !== '' && oldState.value1 !== '') {
         if (oldState.operation === '+') {
+          
           return {...oldState, value1: Number(oldState.value1) + Number(oldState.value2), operation: '', value2: ''}
         } else if (oldState.operation === '−') {
           return {...oldState, value1: Number(oldState.value1) - Number(oldState.value2), operation: '', value2: ''}
